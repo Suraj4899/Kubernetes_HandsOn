@@ -204,7 +204,7 @@ kubectl describe service mysql-service
 kubectl get pods -l app=mysql
 
 # Connect to MySQL pod
-kubectl exec -it <mysql-pod-name> -- mysql -u appuser -papppassword employee_db
+kubectl exec -it mysql-deployment-59f6474d7c-h2xnm -- mysql -u appuser -p -D employee_db
 
 # Inside MySQL, run:
 SHOW TABLES;
