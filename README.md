@@ -109,23 +109,6 @@ minikube image load employee-frontend:latest
 minikube image ls | findstr employee
 ```
 
-### For Windows (Command Prompt):
-```cmd
-# Use Minikube's Docker daemon
-@FOR /f "tokens=*" %i IN ('minikube docker-env --shell cmd') DO @%i
-
-# Rebuild MySQL image
-cd employee-app\database
-docker build -t employee-mysql:latest .
-
-# Rebuild Frontend image
-cd ..\frontend
-docker build -t employee-frontend:latest .
-
-# Verify images
-docker images | findstr employee
-```
-
 ## Step 4: Deploy to Kubernetes
 
 ### 4.1 Deploy MySQL
@@ -221,7 +204,7 @@ kubectl describe service mysql-service
 kubectl get pods -l app=mysql
 
 # Connect to MySQL pod
-kubectl exec -it <mysql-pod-name> -- mysql -u appuser -papppassword employee_db
+kubectl exec -it mysql-deployment-59f6474d7c-h2xnm -- mysql -u appuser -p -D employee_db
 
 # Inside MySQL, run:
 SHOW TABLES;

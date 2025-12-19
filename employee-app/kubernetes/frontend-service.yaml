@@ -9,7 +9,7 @@ spec:
   ports:
   - port: 5000
     targetPort: 5000
-    nodePort: 30080  # Access via this port
+    nodePort: 30081  # Access via this port
     protocol: TCP
   selector:
     app: frontend
