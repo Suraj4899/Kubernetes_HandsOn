@@ -43,7 +43,10 @@ docker build -t employee-frontend:latest .
 
 ### 1.3 Verify Images
 ```bash
-docker images | grep employee
+docker images | grep employee (#Linux)
+```
+```bash
+docker images | findstr employee (#Windows)
 ```
 
 ## Step 2: Start Minikube
