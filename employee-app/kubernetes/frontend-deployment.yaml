@@ -31,8 +31,8 @@ spec:
               key: MYSQL_USER
         - name: DB_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: emp-app-config
+            secretKeyRef:
+              name: emp-db-secret
               key: MYSQL_PASSWORD
         - name: DB_NAME
           valueFrom:

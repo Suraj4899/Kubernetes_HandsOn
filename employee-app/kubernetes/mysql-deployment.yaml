@@ -24,6 +24,8 @@ spec:
         envFrom:
         - configMapRef:
             name: emp-app-config
+        - secretRef:
+            name: emp-db-secret
         volumeMounts:
         - name: mysql-storage
           mountPath: /var/lib/mysql

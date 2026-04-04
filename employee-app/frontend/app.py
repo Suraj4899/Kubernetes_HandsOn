@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 # Database configuration
 DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'mysql-service'),
-    'user': os.getenv('DB_USER', 'appuser'),
-    'password': os.getenv('DB_PASSWORD', 'apppassword'),
-    'database': os.getenv('DB_NAME', 'employee_db')
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME')
 }
 
 def get_db_connection():
