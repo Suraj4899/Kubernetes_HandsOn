@@ -25,11 +25,20 @@ spec:
         - name: DB_HOST
           value: "mysql-service"
         - name: DB_USER
-          value: "appuser"
+          valueFrom:
+            configMapKeyRef:
+              name: emp-app-config
+              key: MYSQL_USER
         - name: DB_PASSWORD
-          value: "apppassword"
+          valueFrom:
+            configMapKeyRef:
+              name: emp-app-config
+              key: MYSQL_PASSWORD
         - name: DB_NAME
-          value: "employee_db"
+          valueFrom:
+            configMapKeyRef:
+              name: emp-app-config
+              key: MYSQL_DATABASE
         livenessProbe:
           httpGet:
             path: /health

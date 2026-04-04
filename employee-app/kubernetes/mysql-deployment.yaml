@@ -21,15 +21,9 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "rootpassword"
-        - name: MYSQL_DATABASE
-          value: "employee_db"
-        - name: MYSQL_USER
-          value: "appuser"
-        - name: MYSQL_PASSWORD
-          value: "apppassword"
+        envFrom:
+        - configMapRef:
+            name: emp-app-config
         volumeMounts:
         - name: mysql-storage
           mountPath: /var/lib/mysql
